@@ -1,4 +1,4 @@
-# International Football Match Analysis (Demo Project: 240206055)
+# International Football Match Analysis
 
 ## Overview
 
