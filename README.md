@@ -1,18 +1,22 @@
-# International Football Match Insights (INF6027 – Introduction to Data Science)
+# Analyzing Influencing Factors and Match Outcomes in International Football
 
 ## Overview
 
-This project explores trends and statistical insights in international football matches using R and various visualization techniques. The analysis includes match outcomes, venue effects, historical patterns, goal scoring behavior, confederation comparisons, and time-based scoring trends.
+This project explores international football match trends and dynamics using a dataset of over 47,000 matches spanning from 1872 to 2017. The research focuses on uncovering insights into home advantage, temporal scoring patterns, confederation-wise performance, and match outcomes. It incorporates a distributional approach, statistical testing, and predictive modeling techniques using R and Python.
 
----
+The project is structured to support both exploratory data analysis (EDA) and machine learning modeling. Key components include data preprocessing, descriptive and inferential statistics, and classification modeling to predict match results.
 
 ## Dataset
 
-**Dataset Files:**
+**Dataset Name:** International Football Results  
+**Source:** [Kaggle](https://www.kaggle.com/datasets/martj42/international-football-results-from-1872-to-2017)  
+**Description:** A dataset of international football matches with detailed records on scores, venues, and match types.  
+Three primary files:
+- `results.csv`: match-level outcomes
+- `goalscorers.csv`: player-level goal information
+- `shootouts.csv`: penalty shootout results
 
-- `results.csv`: Match metadata including scores, venues, and dates.
-- `goalscorers.csv`: Details of goal scorers and timing.
-- `shootouts.csv`: Records of penalty shootouts.
+These provide a robust foundation for match trend analysis and classification modeling.
 
 ---
 
@@ -78,10 +82,34 @@ install.packages(c("dplyr", "ggplot2", "tidyr", "tibble"))
 
 ```
 project_root/
-├── INF6027 Introduction data science.R   # Main analysis script
-├── goalscorers.csv                       # Goal details
-├── results.csv                           # Match metadata
-├── shootouts.csv                         # Penalty shootout data
+├── data/
+│ ├── goalscorers.csv
+│ ├── results.csv
+│ ├── shootouts.csv
+│ └── results_summary_classified.csv
+├── scripts/
+│ ├── confederation_match_outcome_rates_table_heatmap.R
+│ ├── first_shooter_analysis.R
+│ ├── goal_difference_analysis.R
+│ ├── goal_time_distribution.R
+│ ├── home_advantage_analysis.R
+│ ├── home_win_rate_analysis.R
+│ ├── match_outcome_distribution.R
+│ ├── match_outcomes_by_venue.R
+│ └── penalty_own_goal_analysis.R
+├── ml/
+│ ├── train_model.py
+│ └── train_model.R
+├── outputs/
+│ ├── visuals/
+│ │ ├── Match Outcome Distribution.png
+│ │ ├── Summary of Penalty and Own Goals.png
+│ │ └── more_visuals...
+│ └── tables/
+│ ├── match_outcomes_by_venue.csv
+│ ├── summary_penalty_own_goals.csv
+│ └── more_tables...
+└── README.md
 ```
 
 ### 3. Execution
@@ -98,9 +126,19 @@ Visualizations will be displayed in the default R plot window. Tables will be pr
 
 ## Results Summary
 
-- Charts: Pie charts, bar plots, line graphs, stacked plots, and heatmaps.
-- Statistical tests: T-test for goal comparisons, win rate computations.
-- Insights: Venue effects, first scorer advantage, confederation performance patterns.
+- **Visualizations**: 
+  - Venue-based win rate bar charts  
+  - Temporal home win rate line plots  
+  - Score difference distribution bars  
+  - Confederation-wise heatmaps  
+- **Statistical Methods**: 
+  - Welch t-tests (goal scoring differences)  
+  - Win-rate percentage computation  
+- **Insights**: 
+  - Confirmed home advantage persists across venues  
+  - First scorer has predictive impact on match result  
+  - Confed. like CONMEBOL show strongest home-field bias
+
 
 ---
 
